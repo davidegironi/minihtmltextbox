@@ -1,0 +1,35 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title></title>
+		<style>
+			p {
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+        <script type="text/ecmascript">
+            function IsBold() { return document.queryCommandValue("Bold"); }
+            function IsItalic() { return document.queryCommandValue("Italic"); }
+            function IsUnderline() { return document.queryCommandValue("Underline"); }
+            function IsBulletList() { return document.queryCommandValue("InsertUnOrderedList"); }
+            function IsOrderedList() { return document.queryCommandValue("InsertOrderedList"); }
+            function IsLeft() { return document.queryCommandValue("JustifyLeft"); }
+            function IsCenter() { return document.queryCommandValue("JustifyCenter"); }
+            function IsRight() { return document.queryCommandValue("JustifyRight"); }
+            function IsJustify() { return document.queryCommandValue("JustifyFull"); }
+            function GetFontName() { return document.queryCommandValue("FontName"); }
+            function SetFontName(name, size) { htmltextbox.style.fontFamily = name; }
+            function GetFontSize() { return document.queryCommandValue("FontSize"); }
+            function SetFontSize(size) { htmltextbox.style.fontSize = size; }
+            function Focus() { htmltextbox.focus(); }
+            function SetFont(name, size) {
+                htmltextbox.style.fontFamily = name;
+                htmltextbox.style.fontSize = size;
+            }
+        </script>
+	</head>
+	<body style="margin: 2px; font-family: Calibri; font-size: x-small;">
+		<div id="htmltextbox" style="width:100%; height:100%;" contenteditable="true"></div>
+	</body>
+</html>
