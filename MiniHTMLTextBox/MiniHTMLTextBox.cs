@@ -394,6 +394,8 @@ namespace DG.MiniHTMLTextBox
         {
             if (!(IsHtmlTextBoxLoaded && htmlTextBox.Focused))
                 return;
+            if (IsDisposed)
+                return;
 
             //check focus
             HandleFocusChanged();
