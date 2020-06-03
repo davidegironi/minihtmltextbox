@@ -81,9 +81,9 @@ namespace DG.MiniHTMLTextBox
         private ViewModeType _viewMode = ViewModeType.HTML;
 
         /// <summary>
-        /// Set the get Text mode default value
+        /// Set the readonly default value
         /// </summary>
-        private ViewModeType _textMode = ViewModeType.HTML;
+        private bool _readOnly = false;
 
         /// <summary>
         /// Number of rows for the action bar default value
@@ -197,21 +197,57 @@ namespace DG.MiniHTMLTextBox
                 plainTextBox.Focus();
             }
 
-            toolStripButton_bold.Enabled = !toolStripButton_viewmode.Checked;
-            toolStripButton_italic.Enabled = !toolStripButton_viewmode.Checked;
-            toolStripButton_underline.Enabled = !toolStripButton_viewmode.Checked;
-            toolStripComboBox_fontname.Enabled = !toolStripButton_viewmode.Checked;
-            toolStripComboBox_fontsize.Enabled = !toolStripButton_viewmode.Checked;
-            toolStripButton_orderedlist.Enabled = !toolStripButton_viewmode.Checked;
-            toolStripButton_bulletlist.Enabled = !toolStripButton_viewmode.Checked;
-            toolStripButton_indent.Enabled = !toolStripButton_viewmode.Checked;
-            toolStripButton_outdent.Enabled = !toolStripButton_viewmode.Checked;
-            toolStripButton_horizontalrule.Enabled = !toolStripButton_viewmode.Checked;
-            toolStripButton_left.Enabled = !toolStripButton_viewmode.Checked;
-            toolStripButton_center.Enabled = !toolStripButton_viewmode.Checked;
-            toolStripButton_right.Enabled = !toolStripButton_viewmode.Checked;
-            toolStripButton_justify.Enabled = !toolStripButton_viewmode.Checked;
+            //set read only
+            plainTextBox.ReadOnly = _readOnly;
+            htmlTextBox.Document.All[_Id].SetAttribute("contenteditable", (!_readOnly).ToString());
 
+            //enable or disable actions
+            if (!_readOnly)
+            {
+                toolStripButton_undo.Enabled = true;
+                toolStripButton_redo.Enabled = true;
+                toolStripButton_cut.Enabled = true;
+                toolStripButton_copy.Enabled = true;
+                toolStripButton_paste.Enabled = true;
+                toolStripButton_bold.Enabled = !toolStripButton_viewmode.Checked;
+                toolStripButton_italic.Enabled = !toolStripButton_viewmode.Checked;
+                toolStripButton_underline.Enabled = !toolStripButton_viewmode.Checked;
+                toolStripComboBox_fontname.Enabled = !toolStripButton_viewmode.Checked;
+                toolStripComboBox_fontsize.Enabled = !toolStripButton_viewmode.Checked;
+                toolStripButton_orderedlist.Enabled = !toolStripButton_viewmode.Checked;
+                toolStripButton_bulletlist.Enabled = !toolStripButton_viewmode.Checked;
+                toolStripButton_indent.Enabled = !toolStripButton_viewmode.Checked;
+                toolStripButton_outdent.Enabled = !toolStripButton_viewmode.Checked;
+                toolStripButton_horizontalrule.Enabled = !toolStripButton_viewmode.Checked;
+                toolStripButton_left.Enabled = !toolStripButton_viewmode.Checked;
+                toolStripButton_center.Enabled = !toolStripButton_viewmode.Checked;
+                toolStripButton_right.Enabled = !toolStripButton_viewmode.Checked;
+                toolStripButton_justify.Enabled = !toolStripButton_viewmode.Checked;
+                toolStripButton_viewmode.Enabled = true;
+            }
+            else
+            {
+                toolStripButton_undo.Enabled = false;
+                toolStripButton_redo.Enabled = false;
+                toolStripButton_cut.Enabled = false;
+                toolStripButton_copy.Enabled = true;
+                toolStripButton_paste.Enabled = false;
+                toolStripButton_bold.Enabled = false;
+                toolStripButton_italic.Enabled = false;
+                toolStripButton_underline.Enabled = false;
+                toolStripComboBox_fontname.Enabled = false;
+                toolStripComboBox_fontsize.Enabled = false;
+                toolStripButton_orderedlist.Enabled = false;
+                toolStripButton_bulletlist.Enabled = false;
+                toolStripButton_indent.Enabled = false;
+                toolStripButton_outdent.Enabled = false;
+                toolStripButton_horizontalrule.Enabled = false;
+                toolStripButton_left.Enabled = false;
+                toolStripButton_center.Enabled = false;
+                toolStripButton_right.Enabled = false;
+                toolStripButton_justify.Enabled = false;
+                toolStripButton_viewmode.Enabled = true;
+            }
         }
 
         /// <summary>
@@ -245,7 +281,7 @@ namespace DG.MiniHTMLTextBox
         {
             get
             {
-                if (_textMode == ViewModeType.HTML)
+                if (TextMode == ViewModeType.HTML)
                     return HtmlText;
                 else
                     return PlainText;
@@ -262,14 +298,7 @@ namespace DG.MiniHTMLTextBox
         /// </summary>
         [DefaultValue(typeof(ViewModeType), "HTML")]
         [Category("MiniHTMLTextBox")]
-        public ViewModeType TextMode
-        {
-            get { return _textMode; }
-            set
-            {
-                _textMode = value;
-            }
-        }
+        public ViewModeType TextMode { get; set; } = ViewModeType.HTML;
 
         /// <summary>
         /// Text changed hanlder
@@ -606,6 +635,7 @@ namespace DG.MiniHTMLTextBox
 
         #endregion
 
+
         #region Focus, Painting and Document management
 
         /// <summary>
@@ -724,6 +754,21 @@ namespace DG.MiniHTMLTextBox
                 for (int i = 0; i < DataBindings.Count; i++)
                     DataBindings[i].WriteValue();
 
+            }
+        }
+
+        /// <summary>
+        /// Set the readonly mode
+        /// </summary>
+        [DefaultValue(typeof(bool), "false")]
+        [Category("MiniHTMLTextBox")]
+        public bool ReadOnly
+        {
+            get { return _readOnly; }
+            set
+            {
+                _readOnly = value;
+                HandleViewMode();
             }
         }
 
