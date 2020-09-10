@@ -43,7 +43,7 @@
             this.miniHTMLTextBox1.Location = new System.Drawing.Point(0, 0);
             this.miniHTMLTextBox1.Name = "miniHTMLTextBox1";
             this.miniHTMLTextBox1.Padding = new System.Windows.Forms.Padding(1);
-            this.miniHTMLTextBox1.Size = new System.Drawing.Size(584, 261);
+            this.miniHTMLTextBox1.Size = new System.Drawing.Size(784, 261);
             this.miniHTMLTextBox1.TabIndex = 0;
             this.miniHTMLTextBox1.Text = resources.GetString("miniHTMLTextBox1.Text");
             // 
@@ -51,8 +51,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 261);
+            this.ClientSize = new System.Drawing.Size(784, 261);
             this.Controls.Add(this.miniHTMLTextBox1);
+            this.MinimumSize = new System.Drawing.Size(800, 300);
             this.Name = "FormMain";
             this.Text = "MiniHTMLTextBox Sample";
             this.ResumeLayout(false);

@@ -32,6 +32,16 @@ namespace DG.MiniHTMLTextBox
         public bool WriteBindingSourceValueOnLeave { get; set; } = true;
 
         /// <summary>
+        /// Plain text Component
+        /// </summary>
+        public TextBox PlainTextBox { get { return plainTextBox; } }
+
+        /// <summary>
+        /// Html text Component
+        /// </summary>
+        public WebBrowser HtmlTextBox { get { return htmlTextBox; } }
+
+        /// <summary>
         /// Reference to the htmlTextBox.htm div element
         /// </summary>
         private const string _Id = "htmltextbox";
@@ -301,23 +311,6 @@ namespace DG.MiniHTMLTextBox
         public ViewModeType TextMode { get; set; } = ViewModeType.HTML;
 
         /// <summary>
-        /// Text changed hanlder
-        /// </summary>
-        [Browsable(true)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
-        public new event EventHandler TextChanged
-        {
-            add
-            {
-                base.TextChanged += value;
-            }
-            remove
-            {
-                base.TextChanged -= value;
-            }
-        }
-
-        /// <summary>
         /// Get or set Html text
         /// </summary>
         private string HtmlText
@@ -409,6 +402,7 @@ namespace DG.MiniHTMLTextBox
                 plainTextBoxUndolist.Push(textBox.Text);
             }
         }
+
         #endregion
 
 
@@ -656,6 +650,7 @@ namespace DG.MiniHTMLTextBox
         {
             if (IsHtmlTextBoxLoaded)
                 return;
+
             for (int i = 0; i < 60 && !IsHtmlTextBoxLoaded; i++)
             {
                 System.Threading.Thread.Sleep(100);
@@ -670,6 +665,7 @@ namespace DG.MiniHTMLTextBox
         {
             if (!ContainsFocus)
                 return;
+
             if (htmlTextBox.Focused && _htmlTextBoxTriggerFocus)
             {
                 _htmlTextBoxTriggerFocus = false;
@@ -685,6 +681,7 @@ namespace DG.MiniHTMLTextBox
         protected override void OnGotFocus(EventArgs e)
         {
             base.OnGotFocus(e);
+
             _htmlTextBoxTriggerFocus = true;
             HandleFocusChanged();
         }
@@ -710,6 +707,7 @@ namespace DG.MiniHTMLTextBox
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
+
             ControlPaint.DrawBorder(e.Graphics, ClientRectangle, (ContainsFocus ? BorderColorFocused : BorderColorNonFocused), ButtonBorderStyle.Solid);
         }
 
@@ -723,6 +721,7 @@ namespace DG.MiniHTMLTextBox
             //skip Return key press event
             if (keyData == Keys.Return)
                 return false;
+
             return base.ProcessDialogKey(keyData);
         }
 
@@ -733,6 +732,7 @@ namespace DG.MiniHTMLTextBox
         protected override void OnFontChanged(EventArgs e)
         {
             base.OnFontChanged(e);
+
             if (IsHtmlTextBoxLoaded)
             {
                 htmlTextBox.Document.InvokeScript("SetFontName", new object[] { Font.Name });
