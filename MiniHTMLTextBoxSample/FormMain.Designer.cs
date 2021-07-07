@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.miniHTMLTextBox1 = new DG.MiniHTMLTextBox.MiniHTMLTextBox();
             this.SuspendLayout();
             // 
@@ -45,7 +44,7 @@
             this.miniHTMLTextBox1.Padding = new System.Windows.Forms.Padding(1);
             this.miniHTMLTextBox1.Size = new System.Drawing.Size(784, 261);
             this.miniHTMLTextBox1.TabIndex = 0;
-            this.miniHTMLTextBox1.Text = resources.GetString("miniHTMLTextBox1.Text");
+            this.miniHTMLTextBox1.Text = null;
             // 
             // FormMain
             // 

@@ -6,10 +6,9 @@ $solutionName = "MiniHTMLTextBox"
 $versionMajor = "1"
 $versionMinor = "0"
 $versionBuild = GetVersionBuild
-$versionRevision = "3"
+$versionRevision = "4"
 #build version number
-$assemblyVersion = GetVersion $versionMajor $versionMinor $versionBuild $versionRevision
-$fileVersion = $assemblyVersion
+$version = GetVersion $versionMajor $versionMinor $versionBuild $versionRevision
 
 #base folder for of the solution
 $baseDir  = Resolve-Path .\..\
@@ -47,14 +46,6 @@ $builds = @(
 					@{
 						FileNameFrom = "..\License\";
 						FileNameTo = "..\"
-					},
-					@{
-						FileNameFrom = "..\License\LICENSE";
-						FileNameTo = "..\MiniHTMLTextBox\LICENSE"
-					},
-					@{
-						FileNameFrom = "..\README.md";
-						FileNameTo = "..\MiniHTMLTextBox\README.md"
 					},
 					@{
 						FileNameFrom = "..\README.md";
