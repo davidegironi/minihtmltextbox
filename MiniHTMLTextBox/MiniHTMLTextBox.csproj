@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net40;net5.0-windows</TargetFrameworks>
+    <TargetFrameworks>net40;net5.0-windows;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
     <OutputType>Library</OutputType>
     <RootNamespace>DG.MiniHTMLTextBox</RootNamespace>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
@@ -8,10 +8,10 @@
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <AssemblyName>MiniHTMLTextBox</AssemblyName>
-    <Version>1.0.25907.4</Version>
-    <AssemblyVersion>1.0.25907.4</AssemblyVersion>
-    <FileVersion>1.0.25907.4</FileVersion>
-    <PackageVersion>1.0.25907.4</PackageVersion>
+    <Version>1.0.30113.5</Version>
+    <AssemblyVersion>1.0.30113.5</AssemblyVersion>
+    <FileVersion>1.0.30113.5</FileVersion>
+    <PackageVersion>1.0.30113.5</PackageVersion>
     <Title>MiniHTMLTextBox</Title>
     <Description>Minimal .NET WinForms HTML editor</Description>
     <Product>MiniHTMLTextBox</Product>
@@ -26,6 +26,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageIcon>MiniHTMLTextBox_logo.png</PackageIcon>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <Copyright>Copyright (c) Davide Gironi, 2020</Copyright>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
@@ -39,6 +40,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\License\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>
+      </PackagePath>
+    </None>
+    <None Include="..\README.md" Link="README.md">
       <Pack>True</Pack>
       <PackagePath>
       </PackagePath>

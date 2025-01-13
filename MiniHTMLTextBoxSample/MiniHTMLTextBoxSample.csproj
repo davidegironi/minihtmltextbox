@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net40;net5.0-windows</TargetFrameworks>
+    <TargetFrameworks>net40;net5.0-windows;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
     <OutputType>WinExe</OutputType>
     <RootNamespace>DG.MiniHTMLTextBox.Sample</RootNamespace>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
@@ -10,19 +10,11 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Authors>Davide Gironi</Authors>
     <Company>DG</Company>
-    <Version>1.0.25907.4</Version>
-    <AssemblyVersion>1.0.25907.4</AssemblyVersion>
-    <FileVersion>1.0.25907.4</FileVersion>
+    <Version>1.0.30113.5</Version>
+    <AssemblyVersion>1.0.30113.5</AssemblyVersion>
+    <FileVersion>1.0.30113.5</FileVersion>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\MiniHTMLTextBox\MiniHTMLTextBox.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <!--<Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" Condition="'$(TargetFramework)' == 'net40'">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="Microsoft.mshtml" Condition="'$(TargetFramework)' == 'net40'">
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>-->
   </ItemGroup>
 </Project>

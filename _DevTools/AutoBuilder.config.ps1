@@ -6,7 +6,7 @@ $solutionName = "MiniHTMLTextBox"
 $versionMajor = "1"
 $versionMinor = "0"
 $versionBuild = GetVersionBuild
-$versionRevision = "4"
+$versionRevision = "5"
 #build version number
 $version = GetVersion $versionMajor $versionMinor $versionBuild $versionRevision
 
