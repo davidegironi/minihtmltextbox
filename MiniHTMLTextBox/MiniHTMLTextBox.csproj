@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net40;net5.0-windows;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
+    <TargetFrameworks>net40;netcoreapp3.1;net5.0-windows;net6.0-windows;net7.0-windows;net8.0-windows</TargetFrameworks>
     <OutputType>Library</OutputType>
     <RootNamespace>DG.MiniHTMLTextBox</RootNamespace>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
@@ -8,10 +8,10 @@
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <AssemblyName>MiniHTMLTextBox</AssemblyName>
-    <Version>1.0.30113.5</Version>
-    <AssemblyVersion>1.0.30113.5</AssemblyVersion>
-    <FileVersion>1.0.30113.5</FileVersion>
-    <PackageVersion>1.0.30113.5</PackageVersion>
+    <Version>1.0.30115.6</Version>
+    <AssemblyVersion>1.0.30115.6</AssemblyVersion>
+    <FileVersion>1.0.30115.6</FileVersion>
+    <PackageVersion>1.0.30115.6</PackageVersion>
     <Title>MiniHTMLTextBox</Title>
     <Description>Minimal .NET WinForms HTML editor</Description>
     <Product>MiniHTMLTextBox</Product>
