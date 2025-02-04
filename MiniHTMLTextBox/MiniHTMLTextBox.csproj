@@ -30,6 +30,9 @@
     <Copyright>Copyright (c) Davide Gironi, 2020</Copyright>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net40'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net40" Version="1.0.3" PrivateAssets="All"/>
+  </ItemGroup>
   <ItemGroup>
     <Compile Update="MiniHTMLTextBox.cs">
       <SubType>UserControl</SubType>
